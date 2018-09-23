@@ -32,77 +32,79 @@ sudo mdutil -E /
 echo "#14. Reducing standbydelay time"
 sudo pmset -a standbydelay 1080
 
-echo "#16. Disable Auto-restore in Preview and QuickTime"
+echo "#15. Disable Auto-restore in Preview and QuickTime"
 defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool FALSE
 
-echo "#17. Use the 2D Dock"
+echo "#16. Use the 2D Dock"
 defaults write com.apple.dock no-glass -boolean YES
 
-echo "#18. Clear Out Font Caches"
+echo "#17. Clear Out Font Caches"
 atsutil databases -remove
 
 echo "Make sure Mac-cli is installed(https://github.com/guarinogabriel/Mac-CLI)"
 echo "Updating Mac-cli"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/update)"
 
-echo "#19. Cleanup Xcode files to free up hard disk space"
+echo "#18. Cleanup Xcode files to free up hard disk space"
 mac xcode:cleanup
 
-echo "#20. Cleanup Trash"
+echo "#19. Cleanup Trash"
 mac trash:empty
 
-echo "#21. Purge content of memory ram and disk cache content"s
+echo "#20. Purge content of memory ram and disk cache content"s
 sudo purge
 
+echo "#21. NSGlobalDomain"
 sudo nvram SystemAudioVolume=" "
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-echo "Keyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
+echo "#22. Keyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
 defaults write com.apple.BezelServices kDim -bool true
-printf "Keyboard - Turn off keyboard illumination when computer is not used for 5 minutes\n"
 
+echo "#23. Keyboard - Turn off keyboard illumination when computer is not used for 5 minutes\n"
 defaults write com.apple.BezelServices kDimTime -int 300
 
-printf "Finder - Show the $HOME/Library folder\n"
+echo "#24. Finder - Show the $HOME/Library folder\n"
 chflags nohidden $HOME/Library
 
-printf "Finder - Show hidden files\n"
+echo "#25. Finder - Show hidden files\n"
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
-printf "Finder - Show filename extensions\n"
+echo "#26. Finder - Show filename extensions\n"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-printf "Finder - Show path bar\n"
+echo "#27. Finder - Show path bar\n"
 defaults write com.apple.finder ShowPathbar -bool true
 
-printf "Finder - Show status bar\n"
+echo "#28. Finder - Show status bar\n"
 defaults write com.apple.finder ShowStatusBar -bool true
 
-printf "Finder - Display full POSIX path as window title\n"
+echo "#29. Finder - Display full POSIX path as window title\n"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-printf "Finder - Use list view in all Finder windows\n"
+echo "#30. Finder - Use list view in all Finder windows\n"
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-printf "Disk Utility - Enable debug menu\n"
+echo "#31. Disk Utility - Enable debug menu\n"
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
-printf "Printer - Expand print panel by default\n"
+echo "#32. Printer - Expand print panel by default\n"
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
-printf "Printer - Automatically quit printer app once the print jobs complete\n"
+echo "#33. Printer - Automatically quit printer app once the print jobs complete\n"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-printf "Game Center - Disable Game Center\n"
+echo "#34. Game Center - Disable Game Center\n"
 defaults write com.apple.gamed Disabled -bool true
 
+echo "#35. SoftwareUpdate CriticalUpdateInstall"
 run defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
-echo "brew cleanup"
+echo "#36. brew cleanup"
 brew cleanup
 
-#echo "Restarting Mac"
+#echo "#37. Restarting Mac"
 #mac restart
