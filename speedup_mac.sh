@@ -51,6 +51,58 @@ mac xcode:cleanup
 echo "#20. Cleanup Trash"
 mac trash:empty
 
-echo "Restarting Mac"
-#mac restart
+echo "#21. Purge content of memory ram and disk cache content"s
+sudo purge
 
+sudo nvram SystemAudioVolume=" "
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+echo "Keyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
+defaults write com.apple.BezelServices kDim -bool true
+printf "Keyboard - Turn off keyboard illumination when computer is not used for 5 minutes\n"
+
+defaults write com.apple.BezelServices kDimTime -int 300
+
+printf "Finder - Show the $HOME/Library folder\n"
+chflags nohidden $HOME/Library
+
+printf "Finder - Show hidden files\n"
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+printf "Finder - Show filename extensions\n"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+printf "Finder - Show path bar\n"
+defaults write com.apple.finder ShowPathbar -bool true
+
+printf "Finder - Show status bar\n"
+defaults write com.apple.finder ShowStatusBar -bool true
+
+printf "Finder - Display full POSIX path as window title\n"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+printf "Finder - Use list view in all Finder windows\n"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+printf "Disk Utility - Enable debug menu\n"
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+
+printf "Printer - Expand print panel by default\n"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+printf "Printer - Automatically quit printer app once the print jobs complete\n"
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+printf "Game Center - Disable Game Center\n"
+defaults write com.apple.gamed Disabled -bool true
+
+run defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+
+echo "brew cleanup"
+brew cleanup
+
+#echo "Restarting Mac"
+#mac restart
