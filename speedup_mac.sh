@@ -41,9 +41,9 @@ defaults write com.apple.dock no-glass -boolean YES
 echo "#17. Clear Out Font Caches"
 atsutil databases -remove
 
-echo "Make sure Mac-cli is installed(https://github.com/guarinogabriel/Mac-CLI)"
-echo "Updating Mac-cli"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/update)"
+#echo "Make sure Mac-cli is installed(https://github.com/guarinogabriel/Mac-CLI)"
+#echo "Updating Mac-cli"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/update)"
 
 echo "#18. Cleanup Xcode files to free up hard disk space"
 mac xcode:cleanup
