@@ -23,6 +23,10 @@ echo "#9. Disable the standard delay in rendering a Web page."
 defaults write com.apple.Safari WebKitInitialTimedLayoutDelay 0.25
 echo "#10. The keyboard react faster to keystrokes (not equally useful for everyone"
 defaults write NSGlobalDomain KeyRepeat -int 0
+
+echo "#Backup important Caches"
+cp -R ~/Library/Caches/pip ~/Library/CachesImportant/.
+
 echo "#11. Cleaning ~/Library/Caches/*"
 rm -rf ~/Library/Caches/*
 echo "#12. Cleaning /Library/Caches/*"
@@ -106,5 +110,7 @@ run defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 echo "#36. brew cleanup"
 brew cleanup
 
+echo "#Restore only important Caches"
+cp -R ~/Library/CachesImportant/pip ~/Library/Caches/.
 #echo "#37. Restarting Mac"
 #mac restart
