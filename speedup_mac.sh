@@ -24,7 +24,7 @@ defaults write com.apple.Safari WebKitInitialTimedLayoutDelay 0.25
 echo "#10. The keyboard react faster to keystrokes (not equally useful for everyone"
 defaults write NSGlobalDomain KeyRepeat -int 0
 
-echo "#Backup important Caches"
+echo "#Backing-up important Caches"
 cp -R ~/Library/Caches/pip ~/Library/CachesImportant/.
 
 echo "#11. Cleaning ~/Library/Caches/*"
@@ -104,13 +104,14 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 echo "#34. Game Center - Disable Game Center\n"
 defaults write com.apple.gamed Disabled -bool true
 
-echo "#35. SoftwareUpdate CriticalUpdateInstall"
-run defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+#echo "#35. SoftwareUpdate CriticalUpdateInstall"
+#run defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
-echo "#36. brew cleanup"
-brew cleanup
+#Carefull: This will uninstall all stuff under /usr/local/Cellar
+#echo "#36. brew cleanup"
+#brew cleanup
 
-echo "#Restore only important Caches"
+echo "#Restoring only important Caches"
 cp -R ~/Library/CachesImportant/pip ~/Library/Caches/.
 #echo "#37. Restarting Mac"
 #mac restart
