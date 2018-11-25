@@ -11,4 +11,7 @@ sudo kill -9 $(ps aux | grep 'Safari' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Docker' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Stickies' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Finder' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'Script' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'TeamViewer' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'Sublime' | awk '{print $2}')
 
