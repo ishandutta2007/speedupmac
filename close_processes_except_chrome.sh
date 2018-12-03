@@ -17,4 +17,5 @@ sudo kill -9 $(ps aux | grep 'Sublime' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'WeChat' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'WhatsApp' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Telegram' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'Qt Creator' | awk '{print $2}')
 
