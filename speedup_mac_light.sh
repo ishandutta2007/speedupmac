@@ -118,3 +118,8 @@ defaults write com.apple.gamed Disabled -bool true
 #cp -R ~/Library/CachesImportant/pip ~/Library/Caches/.
 #echo "#38. Restarting Mac"
 #mac restart
+
+echo "#40. disable the calendar agent\n"
+launchctl unload -w /System/Library/LaunchAgents/com.apple.CalendarAgent.plist
+
+
