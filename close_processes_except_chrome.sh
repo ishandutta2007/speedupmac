@@ -1,3 +1,9 @@
+
+sudo kill -9 $(ps aux | grep 'Acrobat' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'BlueStacks' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'Dropbox' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'Firefox' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'DrCleaner' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'iMovie' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Mail' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'VLC' | awk '{print $2}')
@@ -20,3 +26,5 @@ sudo kill -9 $(ps aux | grep 'Telegram' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Qt Creator' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Calendar' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Dictionary' | awk '{print $2}')
+
+
