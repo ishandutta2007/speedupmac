@@ -2,6 +2,7 @@
 sudo kill -9 $(ps aux | grep 'Acrobat' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Flash' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'BlueStacks' | awk '{print $2}')
+sudo kill -9 $(ps aux | grep 'Brave Browser' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Dropbox' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Firefox' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'DrCleaner' | awk '{print $2}')
