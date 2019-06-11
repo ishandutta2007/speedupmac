@@ -117,3 +117,10 @@ echo "#Restoring only important Caches"
 cp -R ~/Library/CachesImportant/pip ~/Library/Caches/.
 #echo "#38. Restarting Mac"
 #mac restart
+
+echo "#39. Cleanup firefox driver logs\n"
+sudo rm -rf /Users/ishandutta2007/geckodriver.log
+
+echo "#40. disable the calendar agent\n"
+launchctl unload -w /System/Library/LaunchAgents/com.apple.CalendarAgent.plist
+
