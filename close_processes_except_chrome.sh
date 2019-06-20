@@ -1,3 +1,5 @@
+sudo kill -9 $(ps aux | grep python | awk '{print $2}')
+sudo kill -9 $(ps aux | grep geckodriver | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'Acrobat' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'App Store' | awk '{print $2}')
 sudo kill -9 $(ps aux | grep 'BlueStacks' | awk '{print $2}')
