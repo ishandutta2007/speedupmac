@@ -124,3 +124,6 @@ sudo rm -rf /Users/ishandutta2007/geckodriver.log
 echo "#40. disable the calendar agent\n"
 launchctl unload -w /System/Library/LaunchAgents/com.apple.CalendarAgent.plist
 
+echo "Reverting ownership to ishandutta2007\n"
+chown -R ishandutta2007 /Users/ishandutta2007/Library/Caches
+chown -R ishandutta2007 /Users/ishandutta2007/Library/CachesImportant
