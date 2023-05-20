@@ -26,7 +26,8 @@ defaults write com.apple.Safari WebKitInitialTimedLayoutDelay 0.25
 echo "#11. The keyboard react faster to keystrokes (not equally useful for everyone"
 defaults write NSGlobalDomain KeyRepeat -int 0
 
-echo "#Backing-up important Caches"
+echo "# Backing-up important Caches"
+echo "   - Backing-up ~/Library/Caches/pip"
 cp -R ~/Library/Caches/pip ~/Library/CachesImportant/.
 
 echo "#12. Cleaning ~/Library/Caches/*"

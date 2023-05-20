@@ -1,0 +1,2 @@
+bash close_processes_except_brave.sh
+bash relaunch_brave.sh
