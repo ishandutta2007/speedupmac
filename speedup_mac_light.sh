@@ -130,3 +130,49 @@ sudo mdutil -a -i off
 
 echo "#42. Reset nvram\n"
 sudo nvram -c
+
+echo "#43. Skip the GUI login screen\n"
+defaults write com.apple.loginwindow autoLoginUser -bool true
+
+echo "#44. massively increase virtualized macOS by disabling spotlight."
+sudo mdutil -i off -a
+
+echo "#45. Set serverperfmode=1 of nvram\n"
+sudo nvram boot-args="serverperfmode=1 $(nvram boot-args 2>/dev/null | cut -f 2-)"
+
+echo "#46. Disable heavy login screen wallpaper\n"
+sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture ""
+
+echo "#47. Reduce Motion & Transparency\n"
+defaults write com.apple.Accessibility DifferentiateWithoutColor -int 1
+defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
+defaults write com.apple.universalaccess reduceMotion -int 1
+defaults write com.apple.universalaccess reduceTransparency -int 1
+defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
+
+echo "#48. Enable multi-sessions\n"
+sudo /usr/bin/defaults write .GlobalPreferences MultipleSessionsEnabled -bool TRUE
+defaults write "Apple Global Domain" MultipleSessionsEnabled -bool true
+
+# #Disable updates (at your own risk!)
+# defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool false
+# defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
+# defaults write com.apple.commerce AutoUpdate -bool false
+# defaults write com.apple.commerce AutoUpdateRestartRequired -bool false
+# defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 0
+# defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 0
+# defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 0
+# defaults write com.apple.SoftwareUpdate AutomaticDownload -int 0
+
+echo "#49. Disable screen locking\n"
+defaults write com.apple.loginwindow DisableScreenLock -bool true
+
+echo "#50. Show a lighter username/password prompt instead of a list of all the users\n"
+defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool true
+defaults write com.apple.loginwindow AllowList -string '*'
+
+echo "#51. Disable saving the application state on shutdown\n"
+defaults write com.apple.loginwindow TALLogoutSavesState -bool false
+
+echo "#52. Disable apps from going to sleep at all"
+sudo -u "${REAL_NAME}" sudo defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
