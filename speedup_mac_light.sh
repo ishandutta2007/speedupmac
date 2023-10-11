@@ -174,5 +174,5 @@ defaults write com.apple.loginwindow AllowList -string '*'
 echo "#51. Disable saving the application state on shutdown\n"
 defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
-echo "#52. Disable apps from going to sleep at all"
-sudo -u "${REAL_NAME}" sudo defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
+echo "#52. Disable apps from going to sleep at all\n"
+sudo defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
