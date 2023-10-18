@@ -58,13 +58,16 @@ mac xcode:cleanup
 echo "#20. Cleanup Trash"
 mac trash:empty
 
-echo "#21. Purge content of memory ram and disk cache content"s
-sudo purge
+# echo "#21. Purge content of memory ram and disk cache content"s
+# sudo purge
 
 echo "#22. NSGlobalDomain"
 sudo nvram SystemAudioVolume=" "
+echo "#22a. NSGlobalDomain NSDisableAutomaticTermination"
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+echo "#22b. NSGlobalDomain NSAutomaticSpellingCorrectionEnabled"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+echo "#22c. NSGlobalDomain DSDontWriteNetworkStores"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 echo "#23. Keyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
@@ -131,8 +134,8 @@ sudo mdutil -a -i off
 echo "#42. Reset nvram\n"
 sudo nvram -c
 
-echo "#43. Skip the GUI login screen\n"
-defaults write com.apple.loginwindow autoLoginUser -bool true
+# echo "#43. Skip the GUI login screen\n"
+# defaults write com.apple.loginwindow autoLoginUser -bool true
 
 echo "#44. massively increase virtualized macOS by disabling spotlight."
 sudo mdutil -i off -a
@@ -171,8 +174,8 @@ echo "#50. Show a lighter username/password prompt instead of a list of all the 
 defaults write /Library/Preferences/com.apple.loginwindow.plist SHOWFULLNAME -bool true
 defaults write com.apple.loginwindow AllowList -string '*'
 
-echo "#51. Disable saving the application state on shutdown\n"
-defaults write com.apple.loginwindow TALLogoutSavesState -bool false
+# echo "#51. Disable saving the application state on shutdown\n"
+# defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 echo "#52. Disable apps from going to sleep at all\n"
 sudo defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
