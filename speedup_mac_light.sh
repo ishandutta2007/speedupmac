@@ -179,3 +179,22 @@ defaults write com.apple.loginwindow AllowList -string '*'
 
 echo "#52. Disable apps from going to sleep at all\n"
 sudo defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
+
+ls /Applications/
+apps1=$(ls /Applications/)
+
+ls ~/Applications/
+apps2=$(ls ~/Applications/)
+
+allapps=("${apps1[@]}" "${apps2[@]}")
+
+ls "/Library/Application Support"
+sup1=$(ls "/Library/Application Support")
+
+ls "~/Library/Application Support"
+sup2=$(ls "~/Library/Application Support")
+
+allsup=("${sup1[@]}" "${sup2[@]}")
+
+echo $allapps
+echo $allsup

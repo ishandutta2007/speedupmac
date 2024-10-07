@@ -180,3 +180,7 @@ defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 
 echo "#52. Disable apps from going to sleep at all\n"
 sudo defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
+
+echo "#53. Delete all time machine snapshots\n"
+sudo tmutil deletelocalsnapshots /
+
