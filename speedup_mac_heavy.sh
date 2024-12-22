@@ -34,77 +34,83 @@ echo "#12. Cleaning ~/Library/Caches/*"
 rm -rf ~/Library/Caches/*
 echo "#13. Cleaning /Library/Caches/*"
 sudo rm -rf /Library/Caches/*
-echo "#14. Rebuilding Spotlight index"
+
+echo "#14. Cleaning /Library/Logs/*"
+rm -rf ~/Library/Logs/*
+echo "#15. Cleaning /Library/Logs/*"
+sudo rm -rf /Library/Logs/*
+
+echo "#16. Rebuilding Spotlight index"
 sudo mdutil -E /
-echo "#15. Reducing standbydelay time"
+echo "#17. Reducing standbydelay time"
 sudo pmset -a standbydelay 1080
 
-echo "#16. Disable Auto-restore in Preview and QuickTime"
+echo "#18. Disable Auto-restore in Preview and QuickTime"
 defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool FALSE
 
-echo "#17. Use the 2D Dock"
+echo "#19. Use the 2D Dock"
 defaults write com.apple.dock no-glass -boolean YES
 
-echo "#18. Clear Out Font Caches"
+echo "#20. Clear Out Font Caches"
 atsutil databases -remove
 
 #echo "Make sure Mac-cli is installed(https://github.com/guarinogabriel/Mac-CLI)"
 #echo "Updating Mac-cli"
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/update)"
 
-echo "#19. Cleanup Xcode files to free up hard disk space"
+echo "#21. Cleanup Xcode files to free up hard disk space"
 mac xcode:cleanup
 
-echo "#20. Cleanup Trash"
+echo "#22. Cleanup Trash"
 mac trash:empty
 
-echo "#21. Purge content of memory ram and disk cache content"s
+echo "#23. Purge content of memory ram and disk cache content"s
 sudo purge
 
-echo "#22. NSGlobalDomain"
+echo "#24. NSGlobalDomain"
 sudo nvram SystemAudioVolume=" "
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-echo "#23. Keyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
+echo "#25. Keyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
 defaults write com.apple.BezelServices kDim -bool true
 
-echo "#24. Keyboard - Turn off keyboard illumination when computer is not used for 5 minutes\n"
+echo "#26. Keyboard - Turn off keyboard illumination when computer is not used for 5 minutes\n"
 defaults write com.apple.BezelServices kDimTime -int 300
 
-echo "#25. Finder - Show the $HOME/Library folder\n"
+echo "#27. Finder - Show the $HOME/Library folder\n"
 chflags nohidden $HOME/Library
 
-echo "#26. Finder - Show hidden files\n"
+echo "#28. Finder - Show hidden files\n"
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
-echo "#27. Finder - Show filename extensions\n"
+echo "#29. Finder - Show filename extensions\n"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-echo "#28. Finder - Show path bar\n"
+echo "#30. Finder - Show path bar\n"
 defaults write com.apple.finder ShowPathbar -bool true
 
-echo "#29. Finder - Show status bar\n"
+echo "#31. Finder - Show status bar\n"
 defaults write com.apple.finder ShowStatusBar -bool true
 
-echo "#30. Finder - Display full POSIX path as window title\n"
+echo "#32. Finder - Display full POSIX path as window title\n"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-echo "#31. Finder - Use list view in all Finder windows\n"
+echo "#33. Finder - Use list view in all Finder windows\n"
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-echo "#32. Disk Utility - Enable debug menu\n"
+echo "#34. Disk Utility - Enable debug menu\n"
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
-echo "#33. Printer - Expand print panel by default\n"
+echo "#35. Printer - Expand print panel by default\n"
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
-echo "#34. Printer - Automatically quit printer app once the print jobs complete\n"
+echo "#36. Printer - Automatically quit printer app once the print jobs complete\n"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-echo "#35. Game Center - Disable Game Center\n"
+echo "#37. Game Center - Disable Game Center\n"
 defaults write com.apple.gamed Disabled -bool true
 
 #echo "#36. SoftwareUpdate CriticalUpdateInstall"
@@ -114,7 +120,7 @@ defaults write com.apple.gamed Disabled -bool true
 #echo "#37. brew cleanup"
 #brew cleanup
 
-echo "#Restoring only important Caches"
+echo "#38 .Restoring only important Caches"
 cp -R ~/Library/CachesImportant/pip ~/Library/Caches/.
 #echo "#38. Restarting Mac"
 #mac restart
@@ -131,7 +137,7 @@ sudo mdutil -a -i off
 echo "#42. Reset nvram\n"
 sudo nvram -c
 
-echo "Reverting ownership to ishandutta2007\n"
+echo "# Reverting ownership to ishandutta2007\n"
 chown -R ishandutta2007 /Users/ishandutta2007/Library/Caches
 chown -R ishandutta2007 /Users/ishandutta2007/Library/CachesImportant
 
@@ -183,4 +189,25 @@ sudo defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
 
 echo "#53. Delete all time machine snapshots\n"
 sudo tmutil deletelocalsnapshots /
+
+echo "#54. Rebuild XPC caches"
+sudo /usr/libexec/xpchelper --rebuild-cache
+
+echo "#55. Rebuild Launch Services"
+sudo /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchS ervices.framework/Versions/A/Support/lsregister -kill -r -seed -domain local -domain system -domain user
+
+echo "#56. Flush DNS cache and restart mdns"
+sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+
+echo "#57. Clear BootCache"
+sudo rm -f /private/var/db/BootCache.playlist
+
+echo "#58.update Dyld cache"
+sudo update_dyld_shared_cache -root / -force
+
+echo "#59. Rebuild Kernel extension caches"
+sudo touch /System/Library/Extensions && sudo kextcache -u /
+
+echo "#60. Rebuild CoreDuet"
+sudo rm -fr /var/db/coreduet/* 
 
