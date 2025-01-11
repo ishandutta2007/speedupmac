@@ -211,3 +211,7 @@ sudo touch /System/Library/Extensions && sudo kextcache -u /
 echo "#60. Rebuild CoreDuet"
 sudo rm -fr /var/db/coreduet/* 
 
+echo "#61. Cleaning ~/.npm/_cacache/*"
+npm cache clean --force
+
+
