@@ -51,7 +51,7 @@ Here's a breakdown of the scripts included and what they do:
 
 We welcome contributions! If you find ways to improve these scripts, fix bugs, or add new optimizations, please feel free to send us pull requests. Your input helps make SpeedUpMac better for everyone!
 
-### Support:
+## Support:
 
 If you want the good work to continue please support us on
 
@@ -59,6 +59,6 @@ If you want the good work to continue please support us on
 *   [BITCOIN ADDRESS: 3LZazKXG18Hxa3LLNAeKYZNtLzCxpv1LyD](https://www.coinbase.com/join/5a8e4a045b02c403bc3a9c0c)
 
 
-### ✨ Star History
+## ✨ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ishandutta2007/speedupmac&type=date&legend=top-left)](https://www.star-history.com/#ishandutta2007/speedupmac&type=date&legend=top-left)
