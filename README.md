@@ -28,7 +28,7 @@ A collection of powerful shell scripts designed to supercharge your Mac's perfor
     # Or, for a lighter cleanup:
     bash speedup_mac_light.sh
     ```
-    Always review the script content before running with `sudo`.
+    You can prepend with `sudo` ie ```sudo bash speedup_mac_heavy.sh``` if you are sure to give all commands the superuser privileges. Always review the script content before running with `sudo`.
 
 ## 📜 Available Scripts
 
