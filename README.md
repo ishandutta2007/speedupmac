@@ -8,6 +8,9 @@
   [![GitHub Forks](https://img.shields.io/github/forks/ishandutta2007/speedupmac?style=for-the-badge)](https://github.com/ishandutta2007/speedupmac/network/members)
   [![GitHub Issues](https://img.shields.io/github/issues/ishandutta2007/speedupmac?style=for-the-badge)](https://github.com/ishandutta2007/speedupmac/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ishandutta2007/speedupmac?style=for-the-badge)](https://github.com/ishandutta2007/speedupmac/pulls)
+<a href="https://github.com/ishandutta2007?tab=followers">
+  <img alt="followers" title="Follow me on Github" src="https://custom-icon-badges.herokuapp.com/github/followers/ishandutta2007?color=236ad3&labelColor=1155ba&style=for-the-badge&logo=person-add&label=Follow&logoColor=white"/>
+</a>
 
   **Supercharge your Mac's performance, reclaim disk space, and streamline your workflow with a collection of powerful, automated shell scripts.**
 
