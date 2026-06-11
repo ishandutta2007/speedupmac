@@ -1,64 +1,110 @@
-# 🚀 SpeedUpMac: Optimize Your macOS Performance! 🚀
+<div align="center">
+  <img src=".github/assets/banner.svg" alt="SpeedUpMac Banner" width="800">
 
-A collection of powerful shell scripts designed to supercharge your Mac's performance, clean up junk, and streamline your daily workflow. Say goodbye to a sluggish system and hello to a faster, more responsive macOS experience!
+  # 🚀 SpeedUpMac: Ultimate macOS Performance Optimization
+
+  [![GitHub License](https://img.shields.io/github/license/ishandutta2007/speedupmac?style=for-the-badge)](LICENSE)
+  [![GitHub Stars](https://img.shields.io/github/stars/ishandutta2007/speedupmac?style=for-the-badge)](https://github.com/ishandutta2007/speedupmac/stargazers)
+  [![GitHub Forks](https://img.shields.io/github/forks/ishandutta2007/speedupmac?style=for-the-badge)](https://github.com/ishandutta2007/speedupmac/network/members)
+  [![GitHub Issues](https://img.shields.io/github/issues/ishandutta2007/speedupmac?style=for-the-badge)](https://github.com/ishandutta2007/speedupmac/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ishandutta2007/speedupmac?style=for-the-badge)](https://github.com/ishandutta2007/speedupmac/pulls)
+
+  **Supercharge your Mac's performance, reclaim disk space, and streamline your workflow with a collection of powerful, automated shell scripts.**
+
+  [Features](#-features) • [How to Use](#-how-to-use) • [Scripts](#-available-scripts) • [Contributing](#-contributing) • [Support](#-support)
+</div>
+
+---
+
+## 📖 Overview
+
+**SpeedUpMac** is a comprehensive suite of optimization scripts designed to fix a sluggish macOS. Whether you're a developer needing to clear Xcode caches or a power user looking for a snappier UI, these scripts automate the tedious process of system maintenance. ⚡
+
+### 🎯 SEO Keywords
+`macOS optimization`, `speed up mac`, `mac cleanup scripts`, `mac performance boost`, `system maintenance mac`, `optimize macos`, `mac disk cleaner`, `xcode cache cleaner`.
+
+---
 
 ## ✨ Features
 
-*   **System Cleanup:** 🗑️ Clear out accumulated caches, logs, and temporary files to reclaim valuable disk space.
-*   **Performance Boost:** ⚡ Optimize UI animations, fine-tune Spotlight indexing, and adjust various system settings for a snappier feel.
-*   **Application Management:** 🚀 Efficiently close unneeded background processes, remove components of large applications, and manage browser instances with ease.
-*   **Developer Tools Cleanup:** 🛠️ Specifically targets Xcode and other developer-related caches, crucial for developers looking to free up space.
-*   **Automated Tasks:** 🔄 Relaunch your favorite browsers or update essential CLI tools with simple commands.
+*   **🧹 System Cleanup:** Deep clean caches, logs, and temporary files to reclaim GBs of disk space.
+*   **⚡ Performance Boost:** Tweak UI animations, Spotlight indexing, and system settings for instant responsiveness.
+*   **🚀 App Management:** Automatically close memory-hogging background processes and manage browser instances.
+*   **🛠️ Developer First:** Dedicated tools for cleaning Xcode, Android Studio, and Mono framework junk.
+*   **🔄 Automation:** Single-command updates and browser refreshes to keep your environment optimal.
+
+---
+
+## 🎬 See it in Action
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ishandutta2007/speedupmac/master/.github/assets/progress_demo.svg" alt="Progress Bar Demo" width="600">
+  <p><i>Automated progress tracking for deep optimization tasks.</i></p>
+</div>
+
+---
 
 ## 🧑‍💻 How to Use
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/speedupmac.git
-    cd speedupmac
-    ```
-2.  **Make scripts executable:**
-    ```bash
-    chmod +x *.sh
-    ```
-3.  **Run a script:**
-    Most scripts require superuser privileges (`sudo`) to modify system files and kill processes.
-    ```bash
-    bash speedup_mac_heavy.sh
-    # Or, for a lighter cleanup:
-    bash speedup_mac_light.sh
-    ```
-    You can prepend with `sudo` ie ```sudo bash speedup_mac_heavy.sh``` if you are sure to give all commands the superuser privileges. Always review the script content before running with `sudo`.
+### 1️⃣ Installation
+```bash
+git clone https://github.com/ishandutta2007/speedupmac.git
+cd speedupmac
+```
+
+### 2️⃣ Preparation
+```bash
+chmod +x *.sh
+```
+
+### 3️⃣ Execution
+Run the scripts with `sudo` for full system optimization:
+```bash
+sudo ./speedup_mac_heavy.sh # For a deep system overhaul
+# OR
+sudo ./speedup_mac_light.sh # For regular maintenance
+```
+
+---
 
 ## 📜 Available Scripts
 
-Here's a breakdown of the scripts included and what they do:
+| Script | Description |
+| :--- | :--- |
+| `speedup_mac_heavy.sh` | 💎 **Deep Clean:** Comprehensive system tweaks and aggressive cache removal. |
+| `speedup_mac_light.sh` | 🍃 **Light Clean:** Essential maintenance for daily performance. |
+| `close_processes_except_brave.sh` | 🛡️ **Focus Mode:** Closes everything except Brave Browser. |
+| `close_processes_except_chrome.sh` | 🌐 **Chrome First:** Closes everything except Google Chrome. |
+| `relaunch_brave.sh` | 🔄 **Brave Refresh:** Clean restart of Brave and Chromedriver. |
+| `remove_large_apps.sh` | 🗑️ **Uninstaller:** Removes heavy components (Mono, Android Studio). |
+| `update_binaries.sh` | 🆙 **Update:** Syncs your `mac-cli` tools. |
 
-*   `speedup_mac_heavy.sh`: Your ultimate Mac optimization tool. This script performs a deep clean and applies a wide array of system tweaks to maximize performance. Ideal for when your Mac feels particularly slow.
-*   `speedup_mac_light.sh`: A gentler approach to Mac optimization, perfect for regular maintenance. It cleans logs, caches (selectively), and applies essential performance-enhancing settings without the aggressive approach of the heavy script.
-*   `close_processes_except_brave.sh`: Terminates a comprehensive list of common applications and processes, ensuring Brave Browser remains open and unaffected.
-*   `close_processes_except_chrome.sh`: Similar to the Brave version, this script closes most applications while keeping Google Chrome running.
-*   `exit_processes_and_relaunch_brave.sh`: A convenience script that first closes all processes (except Brave) and then relaunches Brave Browser for a fresh start.
-*   `exit_processes_and_relaunch_chrome.sh`: Performs the same function as its Brave counterpart, but for Google Chrome.
-*   `relaunch_brave.sh`: Kills all Brave Browser-related processes (including `chromedriver`) and then relaunches Brave Browser. Useful for resolving browser-related issues or freeing up resources.
-*   `relaunch_chrome.sh`: Kills all Google Chrome-related processes (including `chromedriver`) and then relaunches Google Chrome.
-*   `remove_large_apps.sh`: Assists in uninstalling components of certain large applications like the Mono framework and Android Studio files, helping to free up significant disk space.
-*   `update_binaries.sh`: Ensures your `mac-cli` tool is up-to-date. (Requires `mac-cli` to be installed).
-*   `progressbar.sh`: A utility script used by other scripts to display a visual progress bar during execution.
-*   `killnewtab.sh`: **Note:** This script appears to be designed for Windows systems (using `wmic` and `taskkill`). Its functionality on macOS is not guaranteed and might be unintended.
+---
 
 ## 🤝 Contributing
 
-We welcome contributions! If you find ways to improve these scripts, fix bugs, or add new optimizations, please feel free to send us pull requests. Your input helps make SpeedUpMac better for everyone!
+Contributions make the open-source community an amazing place!
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Support:
+---
 
-If you want the good work to continue please support us on
+## 💖 Support
 
-*   [PAYPAL](https://www.paypal.me/ishandutta2007)
-*   [BITCOIN ADDRESS: 3LZazKXG18Hxa3LLNAeKYZNtLzCxpv1LyD](https://www.coinbase.com/join/5a8e4a045b02c403bc3a9c0c)
+If SpeedUpMac saved you time or space, consider supporting the development:
 
+*   [**PayPal**](https://www.paypal.me/ishandutta2007) ☕
+*   **Bitcoin:** `3LZazKXG18Hxa3LLNAeKYZNtLzCxpv1LyD` ₿
+
+---
 
 ## ✨ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ishandutta2007/speedupmac&type=date&legend=top-left)](https://www.star-history.com/#ishandutta2007/speedupmac&type=date&legend=top-left)
+
+<div align="center">
+  Made with ❤️ for the macOS Community
+</div>

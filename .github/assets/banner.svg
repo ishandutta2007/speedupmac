@@ -1,0 +1,23 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" rx="10" ry="10" fill="url(#grad1)" />
+  <text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" filter="url(#shadow)">SpeedUpMac</text>
+  <text x="50%" y="70%" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="rgba(255,255,255,0.8)">Ultimate macOS Performance Optimization Scripts</text>
+  <path d="M700 150 L730 120 L740 130 L770 100 L740 90 L730 100 L700 70 Z" fill="white" opacity="0.6">
+    <animateTransform attributeName="transform" type="translate" from="-20 -20" to="20 20" dur="2s" repeatCount="indefinite" />
+  </path>
+  <circle cx="50" cy="50" r="2" fill="white" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="750" cy="150" r="3" fill="white" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+  </circle>
+</svg>
